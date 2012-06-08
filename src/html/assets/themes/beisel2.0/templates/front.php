@@ -14,7 +14,9 @@
             <?php } ?>
           </div>
           <div class="carousel-inner span9">
-            <?php $i = 0; ?>
+            <?php $i = 0; 
+            $activities = array_reverse($activities);
+            ?>
             <?php foreach($activities as $activity) { ?>
               <div class="item <?php if($i == 0) { ?>active<?php } ?>">
                 <?php $this->theme->display(sprintf('partials/feed-%s.php', $activity[0]['type']), array('activity' => $activity)); ?>
