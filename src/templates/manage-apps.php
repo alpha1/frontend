@@ -16,11 +16,19 @@
         <th></th>
       </tr>
     </thead>
-    <?php foreach($credentials as $credential) { ?>
+    <?php 
+      $appCount=0;
+      foreach($credentials as $credential) {
+      $appCount++;
+     ?>
       <tr>
         <td><?php $this->utility->safe($credential['name']); ?></td>
         <td><a href="/oauth/<?php $this->utility->safe($credential['id']); ?>/delete" class="credential-delete-click">Revoke</a></td>
       </tr>
-    <?php } ?>
+    <?php } 
+      if($appCount ==0){?>
+      <td>No Apps found</td>
+      <?php }
+    }?>
   </table>
 </div>
